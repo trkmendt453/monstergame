@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Monster Oyunu</title>
+    <link rel="stylesheet" href="oyun.css">
+
+  </head>
+  <body>
+      
+    <div class="container">
+      <h2 style="color: rgb(255, 7, 7);">Oyuncu Sağlığı</h2>
+      <div id = "cnv" style="color: rgb(253, 8, 8);">100</div>
+    <h2 style="color: rgb(255, 7, 7);">Canavar Sağlığı</h2>
+    <br>
+    
+    <div id = "goster" style="color: rgb(255, 10, 10);">100</div>
+    <button id='btn' >SALDIR!!</button>
+    <button id='guc'>ÖZEL GÜÇ!!</button>
+    <button id='btnTekrar'  onclick="window.location.reload()">Tekrar Oyna</button>
+    </div>
+
+    <script>
+        var btn = document.querySelector('#btn');
+        var goster = document.querySelector('#goster'); 
+        
+var cnv = document.querySelector('#cnv');
+
+      btn.onclick =  function(){
+ 
+ var sayi= Number(goster.innerHTML);
+ var eksilt = Math.floor(Math.random() * 10);
+ if(sayi - eksilt <= 0){
+   eksilt = sayi;
+ }
+ goster.innerHTML= sayi - eksilt;
+    var sayii = Number(cnv.innerHTML);
+    var eksilt1 = Math.floor(Math.random() * 10);
+    if(sayii - eksilt1 <= 0){
+   eksilt1 = sayii;
+ }
+    cnv.innerHTML= sayii - eksilt1;
+
+    if(sayii == 0){
+      
+        alert('OYUNU KAYBETTİNİZ !!');
+        document.getElementById("btn").style.display = "none";
+        document.getElementById("btnTekrar").style.display = "block";
+        document.getElementById("guc").style.display = "none";
+        document.getElementById("gucTekrar").style.display = "block";
+    } if(sayi==0){
+     
+     alert('OYUNU KAZANDINIZ !!');
+     document.getElementById("btn").style.display = "none";
+     document.getElementById("btnTekrar").style.display = "block";
+     document.getElementById("guc").style.display = "none";
+     document.getElementById("gucTekrar").style.display = "block";
+ }
+
+};
+
+var guc = document.querySelector('#guc');
+   var sayac = 1
+   guc.onclick = function(){
+     if(sayac == 0){
+       alert('Özel Gücü Bir Kez Kullanabilirsin!!!');
+       return;
+     }
+     sayac--
+
+    var goster = document.querySelector('#goster');  
+   var sayi= Number(goster.innerHTML);
+    var eksilt = Math.floor(Math.random() * 30);
+      if(sayi - eksilt <= 0){
+   eksilt = sayi; 
+ }
+ goster.innerHTML= sayi - eksilt;
+   var cnv = document.querySelector('#cnv');
+    var sayii = Number(cnv.innerHTML);
+    var eksilt1 = Math.floor(Math.random() * 10);
+    if(sayii - eksilt1 <= 0){
+   eksilt1 = sayii;
+ }
+    cnv.innerHTML= sayii - eksilt1;
+
+    if(sayii == 0){
+      
+        alert('OYUNU KAZANDINIZ !!');
+    } if(sayi==0){
+     
+     alert('OYUNU KAYBETTİNİZ !!');
+    
+ }
+  
+  
+ }
+   </script>
+  </body>
+</html>
